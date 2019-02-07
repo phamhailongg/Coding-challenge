@@ -60,7 +60,7 @@ if __name__ == '__main__':
 
     while True:
     
-        query = myCommand();
+        query = myCommand() ;
         query = query.lower()
         
         if 'open youtube' in query:
