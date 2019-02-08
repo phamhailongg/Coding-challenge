@@ -103,6 +103,22 @@ while True :
         #     except : 
         #         webbrowser.open("www.google.com")
         
+        def file_open() : 
+            if "Open C folder" in cmd : 
+                path = "C:/"
+                path = os.path.realpath(path)
+                os.startfile(path)
+            elif "Open D folder" in cmd : 
+                path = "D:/"
+                path = os.path.realpath(path)
+                os.startfile(path)
+            # elif "Open Download" in cmd : 
+            #     path = "Download"
+            #     path = os.path.realpath(path)
+            #     os.startfile(path)
+        
+        file_open()
+
         def friend() : 
             if "What's up ?" in cmd or "How are you doing ?" in cmd : 
                 Response_1 = ["Just doing my thing Sir.", "I am fine Sir.", "Pretty well Sir.", "I am full of energy right now."]
@@ -111,7 +127,7 @@ while True :
         friend()
 
         def good_bye() : 
-            if "Goodbye" in cmd or "That is all I want. Thanks for your help!" in cmd or "Thanks. See you later!" in cmd : 
+            if "See you later JARVIS." in cmd or "Goodbye JARVIS " in cmd or "That is all I want." in cmd or "Thanks for your help." in cmd : 
                 Response_2 = ["Okay Sir. Hope to help you more", "No Problem. It is my duty to serve you", "Bye Sir. Have a nice day!" ]
                 print("JARVIS: " + random.choice(Response_2))
                 sys.exit()
