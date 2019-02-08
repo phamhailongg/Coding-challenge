@@ -60,7 +60,7 @@ if __name__ == '__main__':
 
     while True:
     
-        query = myCommand() ;
+        query = myCommand() 
         query = query.lower()
         
         if 'open youtube' in query:
@@ -112,13 +112,13 @@ if __name__ == '__main__':
             speak('Bye Sir, have a good day.')
             sys.exit()
                                     
-        elif 'play music' in query:
-            music_folder = Your_music_folder_path
-            music = [music1, music2, music3, music4, music5]
-            random_music = music_folder + random.choice(music) + '.mp3'
-            os.system(random_music)
+        #elif 'play music' in query:
+            #music_folder = Your_music_folder_path
+            #music = [music1, music2, music3, music4, music5]
+            #random_music = music_folder + random.choice(music) + '.mp3'
+            #os.system(random_music)
                   
-            speak('Okay, here is your music! Enjoy!')
+            #speak('Okay, here is your music! Enjoy!')
             
 
         else:
