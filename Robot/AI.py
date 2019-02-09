@@ -6,7 +6,8 @@ import sys
 import os
 import wolframalpha
 import smtplib
-import pyglet
+
+# mstsc (Window + R)
 
 # client = wolframalpha.Client("Your App ID")
 
@@ -62,13 +63,17 @@ while True :
         alarm_clock()
         
         def web() :
+            # web = ["Open Youtube", "Open Google", "Check my Email", "Play music on Soundcloud", "Check the news", "Open Facebook", "Open Instagram"]
+            # if cmd in web : 
+            #     print("JARVIS: Okay. Wait me a second!")
+            #     webbrowser.open(cmd)
             if "Open Youtube" in cmd : 
                 print("JARVIS: Okay. Wait me a second!")
                 webbrowser.open("www.youtube.com")
             elif "Open Google" in cmd : 
                 print("JARVIS: Okay. Wait me a second!")
                 webbrowser.open("www.google.com")
-            elif "Open Gmail" in cmd : 
+            elif "Check my Email" in cmd : 
                 print("JARVIS: Okay. Wait me a second!")
                 webbrowser.open("www.gmail.com")
             elif "Play music on Soundcloud" in cmd : 
@@ -83,39 +88,58 @@ while True :
             elif "Open Instagram" in cmd : 
                 print("JARVIS: Okay. Wait me a second!")
                 webbrowser.open("www.instagram.com")
-            # elif "Check my email" in cmd 
         
         web()
-        
-        # if cmd = cmd :
-        #     cmd = cmd
-        #     print("JARVIS: Searching...") 
-        #     try : 
-        #         try : 
-        #             res = client.cmd(cmd)
-        #             results = next(res.results).text
-        #             print("""JARVIS: Got it!
-        #             Wolfram Alpha says """ + results)
-        #         except : 
-        #             results = wikipedia.summary(cmd, sentence = 2)
-        #             print("""JARVIS: Got it! 
-        #             Wikipedia says """ + results)
-        #     except : 
-        #         webbrowser.open("www.google.com")
-        
+        # def searching() :
+            # if cmd = cmd :
+            #     cmd = cmd
+            #     print("JARVIS: Searching...") 
+            #     try : 
+            #         try : 
+            #             res = client.cmd(cmd)
+            #             results = next(res.results).text
+            #             print("""JARVIS: Got it!
+            #             Wolfram Alpha says """ + results)
+            #         except : 
+            #             results = wikipedia.summary(cmd, sentence = 2)
+            #             print("""JARVIS: Got it! 
+            #             Wikipedia says """ + results)
+            #     except : 
+            #         webbrowser.open("www.google.com")
+            
+        def mail() : 
+            if "Can you send me an email ?" in cmd : 
+                print("JARVIS: Sure. Who is the recipient ?")
+                recipient = input("Command: ")
+                try : 
+                    print("JARVIS: What should I send ?")
+                    content = input("Command: ")
+
+                    server = smtplib.SMTP("smtp.gmail.com", 587)
+                    server.ehlo()
+                    server.starttls()
+                    server.login("longphamhai123@gmail.com", "phamhailongg")
+                    server.sendmail("longphamhai123@gmail.com", str(recipient), content)
+                    server.close()
+                    print("JARVIS: Your Email is sent!")
+                except : 
+                    print("JARVIS: Sorry Sir! I am unable to send your message at this moment!")
+
+        mail()
+
         def file_open() : 
-            if "Open C folder" in cmd : 
+            if "Open folder C" in cmd : 
+                print("JARVIS: Opening folder C...")
                 path = "C:/"
                 path = os.path.realpath(path)
                 os.startfile(path)
-            elif "Open D folder" in cmd : 
+                print("JARVIS: Folder C opened.")
+            elif "Open folder D" in cmd : 
+                print("JARVIS: Opening folder D...")
                 path = "D:/"
                 path = os.path.realpath(path)
                 os.startfile(path)
-            # elif "Open Download" in cmd : 
-            #     path = "Download"
-            #     path = os.path.realpath(path)
-            #     os.startfile(path)
+                print("JARVIS: Folder D opened.")
         
         file_open()
 
@@ -133,9 +157,3 @@ while True :
                 sys.exit()
 
         good_bye()    
-
-                
-
-
-         
-        
